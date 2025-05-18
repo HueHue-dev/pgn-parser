@@ -46,6 +46,7 @@ class PGN
         foreach ($this->tags as $tag) {
             $tagString .= $tag.PHP_EOL;
         }
+
         $moveString = '';
         foreach ($this->moves as $move) {
             if ($move->getIsWhiteMove()) {

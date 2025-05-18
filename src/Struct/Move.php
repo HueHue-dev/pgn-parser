@@ -33,7 +33,7 @@ class Move
     protected ?string $annotation;
 
     /**
-     * @var string[] any variations associated with the move
+     * @var Variation[] any variations associated with the move
      */
     protected array $variations = [];
 
@@ -110,10 +110,8 @@ class Move
 
     /**
      * Adds a variation to this move.
-     *
-     * @param string $variation the variation text
      */
-    public function addVariation(string $variation): void
+    public function addVariation(Variation $variation): void
     {
         $this->variations[] = $variation;
     }
@@ -121,7 +119,7 @@ class Move
     /**
      * Gets the variations for this move.
      *
-     * @return string[]
+     * @return Variation[]
      */
     public function getVariations(): array
     {
@@ -131,10 +129,16 @@ class Move
     public function __toString(): string
     {
         $annotation = $this->annotation ?? '';
+        $move = $this->san.$annotation;
         if (null !== $this->comment) {
-            return sprintf('%s%s {%s}', $this->san, $annotation, $this->comment);
+            $comment = sprintf('{%s}', $this->comment);
+            $move .= ' ' . $comment;
         }
 
-        return $this->san.$annotation;
+        foreach ($this->getVariations() as $variation) {
+            $move .= ' '.(string) $variation.' ';
+        }
+
+        return trim($move);
     }
 }
