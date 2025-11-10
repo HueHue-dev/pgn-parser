@@ -75,9 +75,6 @@ class Move
         $this->number = $number;
     }
 
-    /**
-     * Returns the SAN.
-     */
     public function getSan(): string
     {
         return $this->san;
@@ -88,12 +85,12 @@ class Move
         $this->san = $san;
     }
 
-    public function getComment(): string
+    public function getComment(): ?string
     {
         return $this->comment;
     }
 
-    public function setComment(string $comment): void
+    public function setComment(?string $comment): void
     {
         $this->comment = $comment;
     }

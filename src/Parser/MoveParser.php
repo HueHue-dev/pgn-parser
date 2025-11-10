@@ -93,8 +93,12 @@ class MoveParser implements Parser
         $moveCount = count($notPreparedMoves);
         $parts = [];
         $startChar = '';
-        for ($i = 1; $i < $moveCount; ++$i) {
+        for ($i = 0; $i < $moveCount; ++$i) {
             if (empty($notPreparedMoves[$i])) {
+                continue;
+            }
+
+            if (preg_match('/^\d+\.$/', $notPreparedMoves[$i])) {
                 continue;
             }
 
@@ -111,6 +115,9 @@ class MoveParser implements Parser
                 $parts[] = $notPreparedMoves[$i];
                 if (str_ends_with($notPreparedMoves[$i], self::$charStartEndMapping[$startChar])) {
                     $fullString = implode(' ', $parts);
+                    if ('(' === $startChar) {
+                        $fullString = str_replace(' ', '', $fullString);
+                    }
                     $moves[] = $fullString;
 
                     $parts = [];

@@ -9,18 +9,18 @@ use HueHue\PgnParser\Validator\TagValidator;
 class TagParser implements Parser
 {
     /**
-     * Parses a single PGN tag from a string.
+     * Parses a single PGN tag from a string and adds it to the PGN object.
      *
      * @return void the parsed Tag object
      */
     public static function parse(mixed $value, PGN $pgn): void
     {
-        preg_match('/\[(\w+)\s"(.*?)"]/', $value, $matches);
+        if (preg_match('/^\[([A-Za-z][A-Za-z0-9_-]*)\s"(.*?)"\]$/', $value, $matches)) {
+            $tagName = $matches[1];
+            $tagValue = $matches[2];
 
-        $tagName = $matches[1];
-        $tagValue = $matches[2];
-
-        $pgn->addTag(new Tag($tagName, $tagValue));
+            $pgn->addTag(new Tag($tagName, $tagValue));
+        }
     }
 
     public static function supports(mixed $value): bool

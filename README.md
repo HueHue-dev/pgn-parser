@@ -9,18 +9,18 @@ A PHP library for parsing Portable Game Notation (PGN) files. This library is de
 
 ## Features
 
-* **PGN Parsing:** Parses PGN formatted strings.
-* **Tag Extraction:** Extracts tag pairs (e.g., `[Event "Chess Game"]`, `[Site "Home"]`).
-* **Move Parsing:** Parses chess moves, including SAN notation.
-* **Move Validation:** Validates move syntax, including:
-    * Basic piece moves (e.g., Ne5, Ra1, Qf3)
-    * Piece captures (e.g., Qxe7, Rxf5)
-    * Pawn moves (e.g., e4, d5)
-    * Pawn captures (e.g., exd5, bxa6)
-    * Pawn promotions (e.g., e8=Q, d8=N+)
-    * Castling (`O-O`, `O-O-O`)
-    * Disambiguation (e.g., Rae1, Nfd2)
-    * Move annotations/evaluation symbols (+, #, !, ?, !!, ??, !?, ?!)
+- **PGN Parsing:** Parses PGN formatted strings.
+- **Tag Extraction:** Extracts tag pairs (e.g., `[Event "Chess Game"]`, `[Site "Home"]`).
+- **Move Parsing:** Parses chess moves, including SAN notation.
+- **Move Validation:** Validates move syntax, including:
+  - Basic piece moves (e.g., Ne5, Ra1, Qf3)
+  - Piece captures (e.g., Qxe7, Rxf5)
+  - Pawn moves (e.g., e4, d5)
+  - Pawn captures (e.g., exd5, bxa6)
+  - Pawn promotions (e.g., e8=Q, d8=N+)
+  - Castling (`O-O`, `O-O-O`)
+  - Disambiguation (e.g., Rae1, Nfd2)
+  - Move annotations/evaluation symbols (+, #, !, ?, !!, ??, !?, ?!)
 
 ## Installation
 
