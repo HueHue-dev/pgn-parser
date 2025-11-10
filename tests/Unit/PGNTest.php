@@ -1,5 +1,7 @@
 <?php
 
+namespace Tests\Unit;
+
 use HueHue\PgnParser\Struct\Move;
 use HueHue\PgnParser\Struct\PGN;
 
